@@ -1,0 +1,37 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Database\Migrations\Migration;
+
+class CreateMoviesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('movies', function(Blueprint $table){
+        	$table->increments('id');
+        	
+        	$table->string('name');
+        	$table->date('publish');
+        	$table->text('description');
+        	$table->integer('duration');
+        	$table->float("imdb");
+
+        	$table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::drop("movies");
+    }
+}
